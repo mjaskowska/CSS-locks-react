@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Description from './components/Description';
+import Inputs from './components/Inputs';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="title"> CSS Locks Generator</h1>
+      <Description />
+      <Inputs />
+      <div className="button-container">
+      <button>Calculate</button>
+      <button>Reset</button>
+      </div>
+      
     </div>
   );
 }

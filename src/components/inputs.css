@@ -1,0 +1,33 @@
+.container {
+    display: block;
+    width: 100%;
+    margin-top: 40px;
+}
+.input-container {
+    margin-top: 20px;
+}
+
+.breakpoint-title {
+    color: white;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+input {
+    background-color: transparent;
+    border: 1px solid white;
+    height: 30px;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    outline: none;
+    width: calc(100%/2 - 10px);
+    max-width: 200px;
+    margin-right: 5px;
+}
+
+input:focus {
+    border: 2px solid white;
+    background: #0e111a;
+    
+}
