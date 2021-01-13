@@ -1,16 +1,14 @@
 import './App.css';
 import Description from './components/Description';
-import Inputs from './components/Inputs';
+import Calculator from './components/Calculator';
 
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <h1 className="title"> CSS Locks Generator</h1>
       <Description />
-      <Inputs />
-      
-      
+      <Calculator />
     </div>
   );
 }

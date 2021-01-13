@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .breakpoint-title {
@@ -17,6 +18,10 @@
     font-size: 1rem;
     font-weight: normal;
     margin-top: 1.8rem;
+}
+
+label {
+    font-size: 10px;
 }
 
 input {
@@ -28,8 +33,9 @@ input {
     border-radius: 20px;
     outline: none;
     width: calc(100%/2);
-    max-width: 250px;
+    max-width: 200px;
     margin-right: 5px;
+    font-size: 0.7rem;
 }
 
 input:focus {
