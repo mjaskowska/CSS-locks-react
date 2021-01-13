@@ -1,16 +1,22 @@
 .container {
     display: block;
     width: 100%;
-    margin-top: 40px;
+    max-width: 500px;
+    margin: 40px auto 0px auto;
 }
 .input-container {
     margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .breakpoint-title {
     color: white;
     font-size: 1rem;
     font-weight: normal;
+    margin-top: 1.8rem;
 }
 
 input {
@@ -21,8 +27,8 @@ input {
     color: white;
     border-radius: 20px;
     outline: none;
-    width: calc(100%/2 - 10px);
-    max-width: 200px;
+    width: calc(100%/2);
+    max-width: 250px;
     margin-right: 5px;
 }
 
@@ -31,3 +37,21 @@ input:focus {
     background: #0e111a;
     
 }
+
+
+.button-container {
+    margin-top: 30px;
+    width: 100%;
+  }
+  button {
+    display: inline-block;
+    background-color:#51586B ;
+    border: 1px solid #51586B;
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin-left: 10px;
+    outline: none;
+  }
+  button:hover {
+      border: 1px solid white;
+  }

@@ -9,10 +9,7 @@ function App() {
       <h1 className="title"> CSS Locks Generator</h1>
       <Description />
       <Inputs />
-      <div className="button-container">
-      <button>Calculate</button>
-      <button>Reset</button>
-      </div>
+      
       
     </div>
   );
