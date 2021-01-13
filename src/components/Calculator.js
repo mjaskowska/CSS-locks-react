@@ -7,7 +7,6 @@ import { CalcProvider } from './CalcContext'
 
 const Calculator = (props) => {
     
-
     return (
         <CalcProvider>
             <Inputs />
