@@ -1,30 +1,53 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
+
+export const CalcContext = createContext();
+
+export const CalcProvider = ({ children }) => {
+  const [allInfo, setAllInfo] = useState(
+    {minValue: ""},
+    {maxValue: ""},
+    {minWidth: ""},
+    {maxWidth: ""},
+    {minValueRem: ""},
+    {mValue: ""},
+    {ValueDifference: ""},
+    {bValue: ""},
+    {mValuevw: ""},
+  ); 
 
 
+  const calculateLock = (passedInfo) => {
+    const { minValue, maxValue, minWidth, maxWidth } = passedInfo;
 
-const initialState = {
-    minValue: '',
-    maxValue: '',
-    minWidth: '',
-    maxWidth: ''
-    }
+    const minValueRem = minValue / 16;
 
-export const CalcContext = createContext(initialState);
+    const mValue = (maxValue - minValue) / (maxWidth - minWidth);
+    const ValueDifference = maxValue - minValue;
 
-export const CalcProvider = ({children}) => {
+    const bValue =
+      Math.round((0 - mValue * minWidth + Number.EPSILON) * 1000) / 1000;
+    const mValuevw = Math.round((mValue * 100 + Number.EPSILON) * 1000) / 1000;
 
+    const calculationOutput = {
+      minValue,
+      maxValue,
+      minWidth,
+      maxWidth,
+      minValueRem,
+      mValue,
+      ValueDifference,
+      bValue,
+      mValuevw,
+    };
+
+    console.log(calculationOutput, 'from calculcatelock')
+    return calculationOutput;
+  };
   
-    const getInfo = (passedInfo) => {
-        console.log('from getInfo')
-        console.log(passedInfo)
-    }
-    
+
 
   return (
-    <CalcContext.Provider
-       value={getInfo}
-    >
-      {children}
-    </CalcContext.Provider>
+    <CalcContext.Provider value={[allInfo, setAllInfo]}>{children}</CalcContext.Provider>
   );
 };
+
