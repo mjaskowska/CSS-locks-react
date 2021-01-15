@@ -3,13 +3,16 @@ import "./Calculator.css";
 import Inputs from "./Inputs";
 import ResultField from "./ResultField";
 import { CalcProvider } from "./CalcContext";
+import Buttons from "./Buttons";
 
-const Calculator = (props) => {
+const Calculator = () => {
 
   return (
     <CalcProvider>
       <Inputs/>
+      <Buttons />
       <ResultField />
+
     </CalcProvider>
   );
 };

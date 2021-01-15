@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { CalcContext } from "./CalcContext";
-import Buttons from "./Buttons";
 
-const Inputs = (props) => {
+
+const Inputs = () => {
 
  const {minValue, setMinValue, minWidth, setMinWidth, maxValue, setMaxValue, maxWidth, setMaxWidth} = useContext(CalcContext)
 //  console.log(minValue, minWidth, maxValue, maxWidth, 'from inputs under all info object')
@@ -26,18 +26,18 @@ const Inputs = (props) => {
       <h3 className="breakpoint-title">Lower breakpoint</h3>
       <div className="input-container">
         <label>Enter font size (px)</label>
-        <input placeholder="value(px)" type="text" value={minValue} onChange={updateMinValue}></input>
+        <input placeholder="value(px)" type="text" value={minValue} onChange={updateMinValue} required></input>
         <label>Enter breakpoint width (px)</label>
-        <input placeholder="at width(px)" type="text" value={minWidth} onChange={updateMinWidth}></input>
+        <input placeholder="at width(px)" type="text" value={minWidth} onChange={updateMinWidth} required></input>
       </div>
       <h3 className="breakpoint-title">Higher breakpoint</h3>
       <div className="input-container">
         <label>Enter font size (px)</label>
-        <input placeholder="value(px)" type="text" value={maxValue} onChange={updateMaxValue}></input>
+        <input placeholder="value(px)" type="text" value={maxValue} onChange={updateMaxValue} required></input>
         <label>Enter breakpoint width (px)</label>
-        <input placeholder="at width(px)" type="text" value={maxWidth} onChange={updateMaxWidth}></input>
+        <input placeholder="at width(px)" type="text" value={maxWidth} onChange={updateMaxWidth} required></input>
       </div>
-      <Buttons />
+      
     </div>
   );
 };
