@@ -1,15 +1,18 @@
-import React from "react";
-// import { CalcContext } from "./CalcContext";
+import React, {useContext} from "react";
+import { CalcContext } from "./CalcContext";
 
 const Buttons = () => {
 
+  const {setMinValue, setMinWidth, setMaxValue, setMaxWidth} = useContext(CalcContext)
+ 
+
   const resetLock = (e) => {
     e.preventDefault();
-    console.log("reset Locks");
-    // setMinValue("");
-    // setMaxValue("");
-    // setMinWidth("");
-    // setMaxWidth("");
+    console.log("resets Locks");
+    setMinValue("");
+    setMaxValue("");
+    setMinWidth("");
+    setMaxWidth("");
   };
 
   const generateLock = (e) => {
