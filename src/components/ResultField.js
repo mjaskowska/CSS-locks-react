@@ -3,32 +3,20 @@ import { CalcContext } from "./CalcContext";
 import './ResultField.css'
 
 const ResultField = (props) => {
+    
+    const {minWidth, maxWidth, minValueRem, valueDifference, bValue, mValuevw } = useContext(CalcContext)
 
     
-    const {minValue, minWidth, maxValue,  maxWidth, } = useContext(CalcContext)
-    console.log(minValue, minWidth, maxValue, maxWidth, 'from result field')
-
-    
-
-
-
-
     return (
-        <>
-    {/* //     <div>
-    // <p>font-size: ${fontMinRem}rem;</p>
-    // <p>(min-width: ${minWidth}px) font-size: calc(${fontMinRem}rem + ${mFontvw}vw + ${bFont}px)</p>
-    // <p>(min-width: ${maxWidth}px) font-size: calc(${fontMinRem}rem + ${fontDiffPx}px)</p>
-    //   </div> */}
+     <>
+        <h4>Paste into your project: </h4>
+        <div className = "result-container">
+            <p>font-size: {minValueRem}rem;</p>
+            <p>@media (min-width: {minWidth}px) font-size: calc({minValueRem}rem + {mValuevw}vw + {bValue}px);</p>
+            <p>@media (min-width: {maxWidth}px) font-size: calc({minValueRem}rem + {valueDifference}px);</p>
 
-    <h4>Paste into your project: </h4>
-    <div className = "result-container">
-        <p> first line</p>
-        <p> first line</p>
-        <p> first line</p>
-
-    </div>
-        </>
+        </div>
+    </>
     )
 }
 

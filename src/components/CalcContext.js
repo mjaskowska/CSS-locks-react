@@ -9,6 +9,11 @@ export const CalcProvider = ({ children }) => {
   const [maxValue, setMaxValue] = useState("")
   const [maxWidth, setMaxWidth] = useState("")
 
+  const [minValueRem, setMinValueRem] = useState("");
+  const [valueDifference, setValueDifference] = useState("");
+  const [bValue, setBValue] = useState("");
+  const [mValuevw, setMValuevw] = useState("");
+
   const calculateLock = (minValue, minWidth, maxValue, maxWidth) => {
     const minValueRem = minValue / 16
     const mValue = (maxValue - minValue) / (maxWidth - minWidth)
@@ -16,17 +21,12 @@ export const CalcProvider = ({ children }) => {
     const bValue = Math.round((0 - mValue * minWidth + Number.EPSILON) * 1000) / 1000;
     const mValuevw = Math.round((mValue * 100 + Number.EPSILON) * 1000) / 1000;
 
-    const lockVars = {
-      minValueRem,
-      valueDifference,
-      bValue,
-      mValuevw
-    }
-    console.log(lockVars)
-    return(lockVars)
+    setMinValueRem(minValueRem)
+    setValueDifference(valueDifference)
+    setBValue(bValue)
+    setMValuevw(mValuevw)
   }
-
-calculateLock(minValue, minWidth, maxValue, maxWidth)
+   console.log(minValueRem, valueDifference, bValue, mValuevw, 'from context locks vars')
 
 
   const allInfo = {
@@ -38,7 +38,11 @@ calculateLock(minValue, minWidth, maxValue, maxWidth)
     setMaxValue,
     maxWidth,
     setMaxWidth,
-    calculateLock
+    calculateLock,
+    minValueRem,
+    valueDifference, 
+    bValue,
+    mValuevw,
   }
  
   console.log(minValue, minWidth, maxValue, maxWidth, 'from context')

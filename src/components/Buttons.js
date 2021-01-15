@@ -3,7 +3,7 @@ import { CalcContext } from "./CalcContext";
 
 const Buttons = () => {
 
-  const {setMinValue, setMinWidth, setMaxValue, setMaxWidth} = useContext(CalcContext)
+  const {minValue, maxValue, minWidth, maxWidth, setMinValue, setMinWidth, setMaxValue, setMaxWidth, calculateLock} = useContext(CalcContext)
  
 
   const resetLock = (e) => {
@@ -17,8 +17,7 @@ const Buttons = () => {
 
   const generateLock = (e) => {
     e.preventDefault();
-    console.log('lock generated from context')
-    
+    calculateLock(minValue, minWidth, maxValue, maxWidth)
   };
 
   return (
