@@ -1,7 +1,18 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { CalcContext } from "./CalcContext";
 import './ResultField.css'
 
 const ResultField = (props) => {
+
+    
+    const {minValue, minWidth, maxValue,  maxWidth, } = useContext(CalcContext)
+    console.log(minValue, minWidth, maxValue, maxWidth, 'from result field')
+
+    
+
+
+
+
     return (
         <>
     {/* //     <div>

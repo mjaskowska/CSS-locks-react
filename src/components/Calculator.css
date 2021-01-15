@@ -10,7 +10,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .breakpoint-title {
@@ -22,7 +21,8 @@
 
 label {
     font-size: 10px;
-    color: #ffffff80;
+    color: #ffffffb6;
+    padding: 3px;
 }
 
 input {
