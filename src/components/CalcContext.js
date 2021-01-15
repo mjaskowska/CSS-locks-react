@@ -26,7 +26,7 @@ export const CalcProvider = ({ children }) => {
     setBValue(bValue)
     setMValuevw(mValuevw)
   }
-   console.log(minValueRem, valueDifference, bValue, mValuevw, 'from context locks vars')
+  //  console.log(minValueRem, valueDifference, bValue, mValuevw, 'from context locks vars')
 
 
   const allInfo = {
@@ -45,7 +45,7 @@ export const CalcProvider = ({ children }) => {
     mValuevw,
   }
  
-  console.log(minValue, minWidth, maxValue, maxWidth, 'from context')
+  // console.log(minValue, minWidth, maxValue, maxWidth, 'from context')
 
   return (
     <CalcContext.Provider value={allInfo} >

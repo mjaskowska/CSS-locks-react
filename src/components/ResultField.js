@@ -6,7 +6,6 @@ const ResultField = (props) => {
     
     const {minWidth, maxWidth, minValueRem, valueDifference, bValue, mValuevw } = useContext(CalcContext)
 
-    
     return (
      <>
         <h4>Paste into your project: </h4>

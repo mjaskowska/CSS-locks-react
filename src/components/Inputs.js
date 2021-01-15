@@ -5,7 +5,7 @@ import Buttons from "./Buttons";
 const Inputs = (props) => {
 
  const {minValue, setMinValue, minWidth, setMinWidth, maxValue, setMaxValue, maxWidth, setMaxWidth} = useContext(CalcContext)
- console.log(minValue, minWidth, maxValue, maxWidth, 'from inputs under all info object')
+//  console.log(minValue, minWidth, maxValue, maxWidth, 'from inputs under all info object')
  
   const updateMinValue = (e) => {
     setMinValue(e.target.value)

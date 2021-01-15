@@ -8,7 +8,6 @@ const Buttons = () => {
 
   const resetLock = (e) => {
     e.preventDefault();
-    console.log("resets Locks");
     setMinValue("");
     setMaxValue("");
     setMinWidth("");
