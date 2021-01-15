@@ -1,77 +1,45 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { CalcContext } from "./CalcContext";
 import Buttons from "./Buttons";
 
 const Inputs = (props) => {
-  const [minValue, setMinValue] = useState("");
-  const [maxValue, setMaxValue] = useState("");
-  const [minWidth, setMinWidth] = useState("");
-  const [maxWidth, setMaxWidth] = useState("");
 
-  const [calculateLock, setAllInfo = useContext(CalcContext);
+ const {minValue, setMinValue, minWidth, setMinWidth, maxValue, setMaxValue, maxWidth, setMaxWidth} = useContext(CalcContext)
+ console.log(minValue, minWidth, maxValue, maxWidth, 'from inputs under all info object')
+ 
+  const updateMinValue = (e) => {
+    setMinValue(e.target.value)
+  }
+  const updateMinWidth = (e) => {
+    setMinWidth(e.target.value)
+  }
+  const updateMaxValue = (e) => {
+    setMaxValue(e.target.value)
+  }
+  const updateMaxWidth = (e) => {
+    setMaxWidth(e.target.value)
+  }
 
-    const updateAllInfo = e => {
-      setAllInfo(prevInfo => [...prevInfo, {minValue: minValue, maxValue: maxValue, minWidth: minWidth, maxWidth: maxWidth}])
-    }
-  
 
   return (
     <div className="container">
       <h3 className="breakpoint-title">Lower breakpoint</h3>
       <div className="input-container">
-        <label htmlFor="minValue">font-size (px)</label>
-        <input
-          type="text"
-          value={minValue}
-          onChange={(e) => setMinValue(e.target.value)}
-          placeholder="value (px)"
-        ></input>
-        <label htmlFor="minWidth">at width (px)</label>
-        <input
-          type="text"
-          value={minWidth}
-          onChange={(e) => setMinWidth(e.target.value)}
-          placeholder="at width (px)"
-        ></input>
+        <label>Enter font size (px)</label>
+        <input placeholder="value(px)" type="text" value={minValue} onChange={updateMinValue}></input>
+        <label>Enter breakpoint width (px)</label>
+        <input placeholder="at width(px)" type="text" value={minWidth} onChange={updateMinWidth}></input>
       </div>
       <h3 className="breakpoint-title">Higher breakpoint</h3>
       <div className="input-container">
-        <label htmlFor="maxValue">font-size (px)</label>
-        <input
-          type="text"
-          value={maxValue}
-          onChange={(e) => setMaxValue(e.target.value)}
-          placeholder="value (px)"
-        ></input>
-        <label htmlFor="maxWidth">at width (px)</label>
-        <input
-          type="text"
-          value={maxWidth}
-          onChange={(e) => setMaxWidth(e.target.value)}
-          placeholder="at width (px)"
-        ></input>
+        <label>Enter font size (px)</label>
+        <input placeholder="value(px)" type="text" value={maxValue} onChange={updateMaxValue}></input>
+        <label>Enter breakpoint width (px)</label>
+        <input placeholder="at width(px)" type="text" value={maxWidth} onChange={updateMaxWidth}></input>
       </div>
-      <Buttons
-        passInfo={passInfo}
-        setMinValue={setMinValue}
-        setMaxValue={setMaxValue}
-        setMinWidth={setMinWidth}
-        setMaxWidth={setMaxWidth}
-      />
+      <Buttons />
     </div>
   );
 };
 
 export default Inputs;
-// const passInfo = (e) => {
-  //   e.preventDefault();
-
-  //   const passedInfo = {
-  //     minValue,
-  //     maxValue,
-  //     minWidth,
-  //     maxWidth,
-  //   };
-  //   console.log(passedInfo, "from passInfo in inputs");
-  //   calculateLock(passedInfo);
-  // };

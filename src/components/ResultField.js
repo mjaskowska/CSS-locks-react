@@ -1,10 +1,7 @@
-import React, {useContext} from 'react'
-import { CalcContext } from './CalcContext'
+import React from 'react'
 import './ResultField.css'
 
 const ResultField = (props) => {
-    // const calculateLock = useContext(CalcContext)
-    // console.log(calculateLock, 'from resultfield')
     return (
         <>
     {/* //     <div>

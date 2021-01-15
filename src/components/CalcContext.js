@@ -3,51 +3,31 @@ import React, { createContext, useState } from "react";
 export const CalcContext = createContext();
 
 export const CalcProvider = ({ children }) => {
-  const [allInfo, setAllInfo] = useState(
-    {minValue: ""},
-    {maxValue: ""},
-    {minWidth: ""},
-    {maxWidth: ""},
-    {minValueRem: ""},
-    {mValue: ""},
-    {ValueDifference: ""},
-    {bValue: ""},
-    {mValuevw: ""},
-  ); 
 
-
-  const calculateLock = (passedInfo) => {
-    const { minValue, maxValue, minWidth, maxWidth } = passedInfo;
-
-    const minValueRem = minValue / 16;
-
-    const mValue = (maxValue - minValue) / (maxWidth - minWidth);
-    const ValueDifference = maxValue - minValue;
-
-    const bValue =
-      Math.round((0 - mValue * minWidth + Number.EPSILON) * 1000) / 1000;
-    const mValuevw = Math.round((mValue * 100 + Number.EPSILON) * 1000) / 1000;
-
-    const calculationOutput = {
-      minValue,
-      maxValue,
-      minWidth,
-      maxWidth,
-      minValueRem,
-      mValue,
-      ValueDifference,
-      bValue,
-      mValuevw,
-    };
-
-    console.log(calculationOutput, 'from calculcatelock')
-    return calculationOutput;
-  };
   
 
+  const [minValue, setMinValue] = useState("")
+  const [minWidth, setMinWidth] = useState("")
+  const [maxValue, setMaxValue] = useState("")
+  const [maxWidth, setMaxWidth] = useState("")
+
+
+  const allInfo = {
+    minValue,
+    setMinValue,
+    minWidth,
+    setMinWidth,
+    maxValue,
+    setMaxValue,
+    maxWidth,
+    setMaxWidth,
+  }
+ 
+  console.log(minValue, minWidth, maxValue, maxWidth, 'from context')
 
   return (
-    <CalcContext.Provider value={[allInfo, setAllInfo]}>{children}</CalcContext.Provider>
+    <CalcContext.Provider value={allInfo} >
+      {children}
+    </CalcContext.Provider>
   );
-};
-
+}; 
