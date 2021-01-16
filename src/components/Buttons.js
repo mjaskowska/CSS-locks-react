@@ -3,8 +3,8 @@ import { CalcContext } from "./CalcContext";
 
 const Buttons = () => {
 
-  const {minValue, maxValue, minWidth, maxWidth, setMinValue, setMinWidth, setMaxValue, setMaxWidth, calculateLock} = useContext(CalcContext)
- 
+  const {minValue, maxValue, minWidth, maxWidth, setMinValue, setMinWidth, setMaxValue, setMaxWidth, calculateLock, setShowResult} = useContext(CalcContext)
+  
 
   const resetLock = (e) => {
     e.preventDefault();
@@ -12,11 +12,13 @@ const Buttons = () => {
     setMaxValue("");
     setMinWidth("");
     setMaxWidth("");
+    setShowResult(false)
   };
 
   const generateLock = (e) => {
     e.preventDefault();
     calculateLock(minValue, minWidth, maxValue, maxWidth)
+    setShowResult(true)
   };
 
   return (

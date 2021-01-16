@@ -14,6 +14,8 @@ export const CalcProvider = ({ children }) => {
   const [bValue, setBValue] = useState("");
   const [mValuevw, setMValuevw] = useState("");
 
+  const [showResult, setShowResult] = useState(false)
+
   const calculateLock = (minValue, minWidth, maxValue, maxWidth) => {
     const minValueRem = minValue / 16
     const mValue = (maxValue - minValue) / (maxWidth - minWidth)
@@ -26,7 +28,6 @@ export const CalcProvider = ({ children }) => {
     setBValue(bValue)
     setMValuevw(mValuevw)
   }
-  //  console.log(minValueRem, valueDifference, bValue, mValuevw, 'from context locks vars')
 
 
   const allInfo = {
@@ -43,9 +44,10 @@ export const CalcProvider = ({ children }) => {
     valueDifference, 
     bValue,
     mValuevw,
+    showResult,
+    setShowResult
   }
  
-  // console.log(minValue, minWidth, maxValue, maxWidth, 'from context')
 
   return (
     <CalcContext.Provider value={allInfo} >
