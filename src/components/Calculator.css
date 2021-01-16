@@ -55,6 +55,7 @@ input:focus {
   }
   .button-container p {
       margin: 10px auto auto 10px;
+      color: rgb(201, 31, 31);
   }
   button {
     display: inline-block;

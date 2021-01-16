@@ -22,18 +22,17 @@ const Buttons = () => {
     }
     else {
       calculateLock(minValue, minWidth, maxValue, maxWidth)
-       setShowResult(true)
+     setShowResult(true)
     }
-    
   };
+
 
   return (
    
-    <form className="button-container" >
+    <div className="button-container" >
       <button onClick={generateLock}>Calculate</button>
       <button onClick={resetLock}>Reset</button>
-      
-    </form>
+    </div>
     
   );
 };
