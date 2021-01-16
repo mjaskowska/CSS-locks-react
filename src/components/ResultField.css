@@ -11,8 +11,9 @@ h4 {
     background: #51586B ;
     border-radius: 15px;
     margin-bottom: 100px;
+    padding: 15px 0;
 }
 .result-container p {
-    padding: 10px 15px;
+    padding: 5px 15px;
     font-size: 14px;
 }

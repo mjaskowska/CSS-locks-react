@@ -1,8 +1,10 @@
+
+
 .container {
     display: block;
     width: 100%;
-    max-width: 500px;
-    margin: 40px auto 0px auto;
+    max-width: 600px;
+    margin: 20px auto 0px auto;
 }
 .input-container {
     margin-top: 20px;
@@ -15,12 +17,12 @@
 .breakpoint-title {
     color: white;
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: bold;
     margin-top: 1.8rem;
 }
 
 label {
-    font-size: 10px;
+    font-size: 0.95rem;
     color: #ffffffb6;
     padding: 3px;
 }
@@ -49,6 +51,7 @@ input:focus {
 .button-container {
     margin-top: 30px;
     width: 100%;
+    max-width: 600px;
   }
   button {
     display: inline-block;
@@ -62,3 +65,5 @@ input:focus {
   button:hover {
       border: 1px solid white;
   }
+
+ 
