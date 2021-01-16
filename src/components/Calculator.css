@@ -48,12 +48,13 @@ input:focus {
     background: #0e111a;
     
 }
-
-
 .button-container {
     margin-top: 30px;
     width: 100%;
     max-width: 600px;
+  }
+  .button-container p {
+      margin: 10px auto auto 10px;
   }
   button {
     display: inline-block;

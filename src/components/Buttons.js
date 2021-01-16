@@ -17,15 +17,24 @@ const Buttons = () => {
 
   const generateLock = (e) => {
     e.preventDefault();
-    calculateLock(minValue, minWidth, maxValue, maxWidth)
-    setShowResult(true)
+    if (minValue === "" || maxValue === "" || minWidth === "" || maxWidth === "") {
+      alert("Please fill all the fields.")
+    }
+    else {
+      calculateLock(minValue, minWidth, maxValue, maxWidth)
+       setShowResult(true)
+    }
+    
   };
 
   return (
-    <div className="button-container">
+   
+    <form className="button-container" >
       <button onClick={generateLock}>Calculate</button>
       <button onClick={resetLock}>Reset</button>
-    </div>
+      
+    </form>
+    
   );
 };
 
