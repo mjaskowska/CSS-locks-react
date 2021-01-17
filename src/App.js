@@ -15,7 +15,7 @@ function App() {
 
     const tl = gsap.timeline({defaults: {ease: 'power3.inOut'}})
 
-    tl.fromTo([sections], {autoAlpha: 0, y: '-=20'}, {duration: 1, autoAlpha: 1, y: '0'})
+    tl.fromTo([sections], {autoAlpha: 0, scale: 0.97 }, {duration: 1, autoAlpha: 1, scale: 1})
   })
 
   return (

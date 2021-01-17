@@ -13,13 +13,17 @@ const ResultField = () => {
     }
 
     const resultContainer = useRef(null)
+    
 
     useEffect(()=> {
         const resultCode = resultContainer.current.children
+        
 
         const tl = gsap.timeline({defaults: {ease: 'power3.inOut'}})
 
-        tl.fromTo(resultCode, {autoAlpha: 0.2, y: '-=10'}, {duration: 1, autoAlpha: 1, y: '0'})
+
+        tl.fromTo(resultCode, {autoAlpha: 0.2, scale: 0.95 }, {duration: 1, autoAlpha: 1, scale: 1, transformOrigin: '0% 50%'})
+       
 
     })
 
@@ -27,7 +31,7 @@ const ResultField = () => {
     return (
         <>
         <h4>Paste into your project: </h4>
-        <div className = "result-container" >
+        <div className = "result-container">
             <div style={resultStyle} ref={resultContainer}>
                 <p>font-size: {minValueRem}rem;</p> 
                 <p>@media (min-width: {minWidth}px) font-size: calc({minValueRem}rem + {mValuevw}vw + {bValue}px);</p>

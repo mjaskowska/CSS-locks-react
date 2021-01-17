@@ -11,7 +11,7 @@ const Message = () => {
     
         const tl = gsap.timeline({defaults: {ease: 'power3.inOut'}})
     
-        tl.fromTo(message, {autoAlpha: 0.2, y: '-=10'}, {duration: 1, autoAlpha: 1, y: '+=10'})
+        tl.fromTo(message, {autoAlpha: 0.2, y: '-=5', scale: 0.98}, {duration: 1, autoAlpha: 1, y: '+=5', scale: 1})
       })
 
     return (
