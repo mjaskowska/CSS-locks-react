@@ -1,5 +1,5 @@
 import React, {useRef, useEffect} from 'react'
-import './description.css';
+import './styles/Description.css';
 import gsap from 'gsap'
 
 const Message = () => {

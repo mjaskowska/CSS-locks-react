@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Message from './Message'
-import './description.css';
+import './styles/Description.css';
 
 
 

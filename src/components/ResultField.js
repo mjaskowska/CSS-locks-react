@@ -1,7 +1,7 @@
 import React, {useContext, useRef, useEffect} from 'react'
 import { CalcContext } from "./CalcContext";
 import gsap from 'gsap'
-import './ResultField.css'
+import './styles/ResultField.css'
 
 const ResultField = () => {
     

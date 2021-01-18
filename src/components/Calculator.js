@@ -1,5 +1,5 @@
 import React from "react";
-import "./Calculator.css";
+import "./styles/Calculator.css";
 import Inputs from "./Inputs";
 import ResultField from "./ResultField";
 import { CalcProvider } from "./CalcContext";
