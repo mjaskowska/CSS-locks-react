@@ -2,13 +2,14 @@
 
 [Check it out](https://mjaskowska.github.io/CSS-locks-react)
 
-Have you always wanted to implement responsive font sizes in your projects but never knew how to calculate CSS locks?
-            
-Fear no more! This app will handle all that complicated math for you! :)
-            
-Simply specify values of minimum and maximum font-size property that you want on your two breakpoints (media queries) and paste the code below straight into your SASS/CSS file.
+When a value (like font-size) is flexible with viewport units, it might result in a value that is too big or too small. Solution to this problem may be locking it in media queries using calc function. Let’s be honest, no one wants to bother with so much 'complicated' math! This app automatically generates functions that are ready to copy straight into CSS code.
+React app built with functional components using Hooks (useState, useEffect, useContext).
 
-#### Easy!
+Technologies used:
+HTML
+CSS/SCSS
+JavaScript
+React (hooks)
 
 
 
