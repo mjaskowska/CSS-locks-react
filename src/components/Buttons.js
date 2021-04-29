@@ -1,10 +1,20 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
+
 import { CalcContext } from "./CalcContext";
 
 const Buttons = () => {
-
-  const {minValue, maxValue, minWidth, maxWidth, setMinValue, setMinWidth, setMaxValue, setMaxWidth, calculateLock, setShowResult} = useContext(CalcContext)
-  
+  const {
+    minValue,
+    maxValue,
+    minWidth,
+    maxWidth,
+    setMinValue,
+    setMinWidth,
+    setMaxValue,
+    setMaxWidth,
+    calculateLock,
+    setShowResult,
+  } = useContext(CalcContext);
 
   const resetLock = (e) => {
     e.preventDefault();
@@ -12,28 +22,29 @@ const Buttons = () => {
     setMaxValue("");
     setMinWidth("");
     setMaxWidth("");
-    setShowResult(false)
+    setShowResult(false);
   };
 
   const generateLock = (e) => {
     e.preventDefault();
-    if (minValue === "" || maxValue === "" || minWidth === "" || maxWidth === "") {
-      alert("Please fill all the fields.")
-    }
-    else {
-      calculateLock(minValue, minWidth, maxValue, maxWidth)
-     setShowResult(true)
+    if (
+      minValue === "" ||
+      maxValue === "" ||
+      minWidth === "" ||
+      maxWidth === ""
+    ) {
+      alert("Please fill all the fields.");
+    } else {
+      calculateLock(minValue, minWidth, maxValue, maxWidth);
+      setShowResult(true);
     }
   };
 
-
   return (
-   
-    <div className="button-container" >
+    <div className="button-container">
       <button onClick={generateLock}>Calculate</button>
       <button onClick={resetLock}>Reset</button>
     </div>
-    
   );
 };
 

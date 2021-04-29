@@ -3,7 +3,6 @@ import React, { createContext, useState } from "react";
 export const CalcContext = createContext();
 
 export const CalcProvider = ({ children }) => {
-
   const [minValue, setMinValue] = useState("")
   const [minWidth, setMinWidth] = useState("")
   const [maxValue, setMaxValue] = useState("")
@@ -48,7 +47,6 @@ export const CalcProvider = ({ children }) => {
     setShowResult
   }
  
-
   return (
     <CalcContext.Provider value={allInfo} >
       {children}

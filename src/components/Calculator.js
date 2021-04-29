@@ -1,9 +1,11 @@
 import React from "react";
-import "./styles/Calculator.css";
+import { CalcProvider } from "./CalcContext";
+
 import Inputs from "./Inputs";
 import ResultField from "./ResultField";
-import { CalcProvider } from "./CalcContext";
 import Buttons from "./Buttons";
+
+import "./styles/Calculator.css";
 
 const Calculator = () => {
 
@@ -12,7 +14,6 @@ const Calculator = () => {
       <Inputs/>
       <Buttons />
       <ResultField />
-
     </CalcProvider>
   );
 };
