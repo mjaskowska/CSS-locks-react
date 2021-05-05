@@ -1,7 +1,7 @@
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext, useRef } from "react";
 
 import { CalcContext } from "./CalcContext";
-import gsap from "gsap";
+
 
 import "./styles/ResultField.css";
 
@@ -21,15 +21,6 @@ const ResultField = () => {
   };
   const resultContainer = useRef(null);
 
-  useEffect(() => {
-    const resultCode = resultContainer.current.children;
-    const tl = gsap.timeline({ defaults: { ease: "power3.inOut" } });
-    tl.fromTo(
-      resultCode,
-      { autoAlpha: 0.2, scale: 0.95 },
-      { duration: 1, autoAlpha: 1, scale: 1, transformOrigin: "0% 50%" }
-    );
-  });
 
   return (
     <>
