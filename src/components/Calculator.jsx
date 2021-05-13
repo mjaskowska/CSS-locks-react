@@ -10,7 +10,7 @@ import ResultField from "./ResultField";
 
 const Calculator = () => {
   const { calculateLock } = useContext(CalcContext);
-  const [showMoreInfo, setShowMoreInfo] = useState(true);
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
   const [showResult, setShowResult] = useState(false)
   return (
     <Formik

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Calculator from "./components/Calculator.jsx"
+import Footer from "./components/Footer"
 import { CalcProvider } from "./components/CalcContext";
 
 import "./components/styles/_index.scss"
@@ -8,7 +9,8 @@ import "./components/styles/_index.scss"
 function App() {
   return (
     <CalcProvider>
-      <Calculator />          
+      <Calculator />      
+      <Footer />    
     </CalcProvider>
   );
 }
