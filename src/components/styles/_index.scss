@@ -1,0 +1,11 @@
+@import "./calculator",  "./moreInfo", "./resultField";
+
+body {
+    font-family: "Roboto Condensed", serif
+};
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

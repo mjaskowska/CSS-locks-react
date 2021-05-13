@@ -7,11 +7,12 @@ export const CalcProvider = ({ children }) => {
   const [valueDifference, setValueDifference] = useState();
   const [bValue, setBValue] = useState();
   const [mValuevw, setMValuevw] = useState();
+  const [minWidth, setMinWidth] = useState()
+  const [maxWidth, setMaxWidth] = useState()
 
   const [showResult, setShowResult] = useState(false)
 
   const calculateLock = ({minSize, minWidth, maxSize, maxWidth}) => {
-    console.log({minSize, minWidth, maxSize, maxWidth})
     const minValueRem = minSize / 16
     const mValue = (maxSize - minSize) / (maxWidth - minWidth)
     const valueDifference = maxSize - minSize;
@@ -22,6 +23,8 @@ export const CalcProvider = ({ children }) => {
     setValueDifference(valueDifference)
     setBValue(bValue)
     setMValuevw(mValuevw)
+    setMinWidth(minWidth)
+    setMaxWidth(maxWidth)
   }
 
   const allInfo = {
@@ -31,7 +34,9 @@ export const CalcProvider = ({ children }) => {
     bValue,
     mValuevw,
     showResult,
-    setShowResult
+    setShowResult,
+    minWidth,
+    maxWidth
   }
  
   return (

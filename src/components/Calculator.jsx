@@ -4,12 +4,14 @@ import { Formik, Form } from "formik";
 import { validationSchema } from "./validation";
 
 import MoreInfo from "./MoreInfo";
-import {CalcContext} from "./CalcContext"
+import { CalcContext } from "./CalcContext";
 import { CONSTANTS, BUTTONS } from "./utils";
+import ResultField from "./ResultField";
 
 const Calculator = () => {
-    const {calculateLock, setShowResult} = useContext(CalcContext)
+  const { calculateLock } = useContext(CalcContext);
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const [showResult, setShowResult] = useState(true)
   return (
     <Formik
       {...{
@@ -18,9 +20,8 @@ const Calculator = () => {
         validateOnMount: true,
         validationSchema,
         onSubmit: (values) => {
-          console.log(values);
-          calculateLock(values)
-          setShowResult(true)
+          calculateLock(values);
+          setShowResult(true);
         },
         onReset: (values) => values,
       }}
@@ -28,24 +29,26 @@ const Calculator = () => {
       {({ values, errors, handleChange }) => (
         <section className="calculator-container">
           <h1 className="main-title">CSS Locks Generator</h1>
-          {/* <button {...{
-                type: "button",
-                className: "more-info-btn",
-                onClick: ()=>setShowMoreInfo(!showMoreInfo)
-            }}>
-                How does it work?
-            </button> */}
+          <button
+            {...{
+              type: "button",
+              className: "more-info-btn",
+              onClick: () => setShowMoreInfo(!showMoreInfo),
+            }}
+          >
+            How does it work?
+          </button>
           {showMoreInfo && <MoreInfo />}
           <Form>
             <h3 className="mid-title">Lower breakpoint</h3>
             <section className="form-container">
               <div className="form-control">
-                <label>Min size (px)</label>
+                <label>Min font-size (px)</label>          
                 <input
                   {...{
                     className: `input-field ${
-                        errors[CONSTANTS.MIN_SIZE] && "invalid"
-                      }`,
+                      errors[CONSTANTS.MIN_SIZE] && "invalid"
+                    }`,
                     id: CONSTANTS.MIN_SIZE,
                     name: CONSTANTS.MIN_SIZE,
                     min: 1,
@@ -55,7 +58,7 @@ const Calculator = () => {
                     value: values[CONSTANTS.MIN_SIZE],
                   }}
                 />
-                 {errors[CONSTANTS.MIN_SIZE] && (
+                {errors[CONSTANTS.MIN_SIZE] && (
                   <p>{errors[CONSTANTS.MIN_SIZE]}</p>
                 )}
               </div>
@@ -64,8 +67,8 @@ const Calculator = () => {
                 <input
                   {...{
                     className: `input-field ${
-                        errors[CONSTANTS.MIN_WIDTH] && "invalid"
-                      }`,
+                      errors[CONSTANTS.MIN_WIDTH] && "invalid"
+                    }`,
                     id: CONSTANTS.MIN_WIDTH,
                     name: CONSTANTS.MIN_WIDTH,
                     min: 1,
@@ -75,7 +78,7 @@ const Calculator = () => {
                     value: values[CONSTANTS.MIN_WIDTH],
                   }}
                 />
-                 {errors[CONSTANTS.MIN_WIDTH] && (
+                {errors[CONSTANTS.MIN_WIDTH] && (
                   <p>{errors[CONSTANTS.MIN_WIDTH]}</p>
                 )}
               </div>
@@ -83,7 +86,7 @@ const Calculator = () => {
             <h3 className="mid-title">Higher breakpoint</h3>
             <section className="font-container">
               <div className="form-control">
-                <label>Max font size (px)</label>
+                <label>Max font-size (px)</label>
                 <input
                   {...{
                     className: `input-field ${
@@ -107,8 +110,8 @@ const Calculator = () => {
                 <input
                   {...{
                     className: `input-field ${
-                        errors[CONSTANTS.MAX_WIDTH] && "invalid"
-                      }`,
+                      errors[CONSTANTS.MAX_WIDTH] && "invalid"
+                    }`,
                     id: CONSTANTS.MAX_WIDTH,
                     name: CONSTANTS.MAX_WIDTH,
                     min: 1,
@@ -118,7 +121,7 @@ const Calculator = () => {
                     value: values[CONSTANTS.MAX_WIDTH],
                   }}
                 />
-                 {errors[CONSTANTS.MAX_WIDTH] && (
+                {errors[CONSTANTS.MAX_WIDTH] && (
                   <p>{errors[CONSTANTS.MAX_WIDTH]}</p>
                 )}
               </div>
@@ -127,6 +130,7 @@ const Calculator = () => {
             <button {...{ type: BUTTONS.SUBMIT }}>Calculate</button>
             <button {...{ type: BUTTONS.RESET }}>Reset</button>
           </Form>
+          {showResult && <ResultField/>}
         </section>
       )}
     </Formik>

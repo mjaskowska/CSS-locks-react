@@ -1,14 +1,14 @@
 import React from "react";
 
 import Calculator from "./components/Calculator.jsx"
-import ResultField from "./components/ResultField"
 import { CalcProvider } from "./components/CalcContext";
+
+import "./components/styles/_index.scss"
 
 function App() {
   return (
     <CalcProvider>
-      <Calculator />    
-      <ResultField />
+      <Calculator />          
     </CalcProvider>
   );
 }
