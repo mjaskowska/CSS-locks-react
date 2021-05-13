@@ -1,5 +1,17 @@
-.result {
+.result-field {
     margin: 0 auto 100px;
     width: 100%;
-    border: 1px solid red;
+
+    .code-output {
+        background: #51586b;
+        padding: 20px 10px;
+        border-radius: 10px;
+        code {
+            display: block;
+            margin: 10px auto;
+            font-size: 0.95rem;
+        }
+    }
+
+
 }

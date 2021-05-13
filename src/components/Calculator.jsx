@@ -10,8 +10,8 @@ import ResultField from "./ResultField";
 
 const Calculator = () => {
   const { calculateLock } = useContext(CalcContext);
-  const [showMoreInfo, setShowMoreInfo] = useState(false);
-  const [showResult, setShowResult] = useState(true)
+  const [showMoreInfo, setShowMoreInfo] = useState(true);
+  const [showResult, setShowResult] = useState(false)
   return (
     <Formik
       {...{
@@ -38,7 +38,7 @@ const Calculator = () => {
           >
             How does it work?
           </button>
-          {showMoreInfo && <MoreInfo />}
+          {showMoreInfo && <MoreInfo {...{showMoreInfo, setShowMoreInfo}} />}
           <Form>
             <h3 className="mid-title">Lower breakpoint</h3>
             <section className="form-container">

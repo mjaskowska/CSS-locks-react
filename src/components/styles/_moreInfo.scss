@@ -1,0 +1,32 @@
+.message {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100vh;
+    z-index: 100;
+
+    .message-field {
+        position: relative;
+        width: 90%;
+        max-width: 500px;
+        background:#51586b;
+        margin: 10% auto;
+        padding: 40px 30px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p {
+            margin-bottom: 10px;
+        }
+        
+    }
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+    }
+
+
+}

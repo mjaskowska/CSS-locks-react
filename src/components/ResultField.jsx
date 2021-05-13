@@ -7,19 +7,19 @@ const ResultField = () => {
     useContext(CalcContext);
 
   return (
-    <section className="result">
+    <section className="result-field">
       <h3 className="mid-title">Copy and paste into your project:</h3>
-      <div>
+      <div className="code-output">
         <code>
-          element {"{"} font-size: {minValueRem}rem; {"}"};
+          element {"{"} font-size: {minValueRem}rem; {"}"}
         </code>
         <code>
           @media (min-width: {minWidth}px){"{"} font-size: calc({minValueRem}rem
-          + {mValuevw}vw + {bValue}px); {"}"};
+          + {mValuevw}vw + {bValue}px); {"}"}
         </code>
         <code>
           @media (min-width: {maxWidth}px){"{"} font-size: calc({minValueRem}rem
-          +{valueDifference}px); {"}"};
+          +{valueDifference}px); {"}"}
         </code>
       </div>
     </section>
