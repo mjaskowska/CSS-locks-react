@@ -1,66 +1,136 @@
-import React, {useState} from 'react'
+import React, { useState, useContext } from "react";
 
-import {Formik, Form} from "formik"
-import {validationSchema} from "./validation"
+import { Formik, Form } from "formik";
+import { validationSchema } from "./validation";
 
-import MoreInfo from "./MoreInfo"
+import MoreInfo from "./MoreInfo";
+import {CalcContext} from "./CalcContext"
+import { CONSTANTS, BUTTONS } from "./utils";
 
 const Calculator = () => {
-    const [showMoreInfo, setShowMoreInfo] = useState(false)
-    return (
-        <Formik
+    const {calculateLock, setShowResult} = useContext(CalcContext)
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
+  return (
+    <Formik
       {...{
-        initialValues: {maxFont: 0},
+        initialValues: { maxSize: 0, minSize: 0, maxWidth: 0, minWidth: 0 },
         validateOnChange: true,
         validateOnMount: true,
-        validationSchema: null,
+        validationSchema,
         onSubmit: (values) => {
-          console.log(values);         
+          console.log(values);
+          calculateLock(values)
+          setShowResult(true)
         },
-        onReset: (values)=>console.log(values),
+        onReset: (values) => values,
       }}
     >
-      {({
-        values,
-        errors,
-        isValid,
-        handleChange,
-        handleSubmit,
-        setFieldValue,
-      }) => (  
+      {({ values, errors, handleChange }) => (
         <section className="calculator-container">
-            <h1 className="main-title">CSS Locks Generator</h1>
-            <button {...{
+          <h1 className="main-title">CSS Locks Generator</h1>
+          {/* <button {...{
                 type: "button",
                 className: "more-info-btn",
                 onClick: ()=>setShowMoreInfo(!showMoreInfo)
             }}>
                 How does it work?
-            </button>
-            {showMoreInfo && <MoreInfo />}
-            <Form className="form-container">              
-                <div className="form-control">
-                    <label>Max font</label>
-                    <input {...{
-                        id: "maxFont",
-                        name: "maxFont",
-                        min: 0,
-                        type: "number",
-                        onChange: handleChange,
-                        value: values["maxFont"]
-                        }}></input>
-                </div>
-                <button {...{type: "submit"}}>Calculate</button>
-                <button {...{type: "reset"}}>Reset</button>
+            </button> */}
+          {showMoreInfo && <MoreInfo />}
+          <Form>
+            <h3 className="mid-title">Lower breakpoint</h3>
+            <section className="form-container">
+              <div className="form-control">
+                <label>Min size (px)</label>
+                <input
+                  {...{
+                    className: `input-field ${
+                        errors[CONSTANTS.MIN_SIZE] && "invalid"
+                      }`,
+                    id: CONSTANTS.MIN_SIZE,
+                    name: CONSTANTS.MIN_SIZE,
+                    min: 1,
+                    type: CONSTANTS.FIELD_TYPE_NUMBER,
+                    onChange: handleChange,
+                    placeholder: CONSTANTS.VALUE_PLACEHOLDER,
+                    value: values[CONSTANTS.MIN_SIZE],
+                  }}
+                />
+                 {errors[CONSTANTS.MIN_SIZE] && (
+                  <p>{errors[CONSTANTS.MIN_SIZE]}</p>
+                )}
+              </div>
+              <div className="form-control">
+                <label>Breakpoint (px)</label>
+                <input
+                  {...{
+                    className: `input-field ${
+                        errors[CONSTANTS.MIN_WIDTH] && "invalid"
+                      }`,
+                    id: CONSTANTS.MIN_WIDTH,
+                    name: CONSTANTS.MIN_WIDTH,
+                    min: 1,
+                    type: CONSTANTS.FIELD_TYPE_NUMBER,
+                    onChange: handleChange,
+                    placeholder: CONSTANTS.VALUE_PLACEHOLDER,
+                    value: values[CONSTANTS.MIN_WIDTH],
+                  }}
+                />
+                 {errors[CONSTANTS.MIN_WIDTH] && (
+                  <p>{errors[CONSTANTS.MIN_WIDTH]}</p>
+                )}
+              </div>
+            </section>
+            <h3 className="mid-title">Higher breakpoint</h3>
+            <section className="font-container">
+              <div className="form-control">
+                <label>Max font size (px)</label>
+                <input
+                  {...{
+                    className: `input-field ${
+                      errors[CONSTANTS.MAX_SIZE] && "invalid"
+                    }`,
+                    id: CONSTANTS.MAX_SIZE,
+                    placeholder: CONSTANTS.VALUE_PLACEHOLDER,
+                    name: CONSTANTS.MAX_SIZE,
+                    min: 1,
+                    type: CONSTANTS.FIELD_TYPE_NUMBER,
+                    onChange: handleChange,
+                    value: values[CONSTANTS.MAX_SIZE],
+                  }}
+                />
+                {errors[CONSTANTS.MAX_SIZE] && (
+                  <p>{errors[CONSTANTS.MAX_SIZE]}</p>
+                )}
+              </div>
+              <div className="form-control">
+                <label>Breakpoint (px)</label>
+                <input
+                  {...{
+                    className: `input-field ${
+                        errors[CONSTANTS.MAX_WIDTH] && "invalid"
+                      }`,
+                    id: CONSTANTS.MAX_WIDTH,
+                    name: CONSTANTS.MAX_WIDTH,
+                    min: 1,
+                    type: CONSTANTS.FIELD_TYPE_NUMBER,
+                    onChange: handleChange,
+                    placeholder: CONSTANTS.VALUE_PLACEHOLDER,
+                    value: values[CONSTANTS.MAX_WIDTH],
+                  }}
+                />
+                 {errors[CONSTANTS.MAX_WIDTH] && (
+                  <p>{errors[CONSTANTS.MAX_WIDTH]}</p>
+                )}
+              </div>
+            </section>
 
-            </Form>
-
+            <button {...{ type: BUTTONS.SUBMIT }}>Calculate</button>
+            <button {...{ type: BUTTONS.RESET }}>Reset</button>
+          </Form>
         </section>
-       )}
-        
-        </Formik>
-    )
-    
-}
+      )}
+    </Formik>
+  );
+};
 
-export default Calculator
+export default Calculator;

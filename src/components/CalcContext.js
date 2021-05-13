@@ -3,22 +3,18 @@ import React, { createContext, useState } from "react";
 export const CalcContext = createContext();
 
 export const CalcProvider = ({ children }) => {
-  const [minValue, setMinValue] = useState("")
-  const [minWidth, setMinWidth] = useState("")
-  const [maxValue, setMaxValue] = useState("")
-  const [maxWidth, setMaxWidth] = useState("")
-
-  const [minValueRem, setMinValueRem] = useState("");
-  const [valueDifference, setValueDifference] = useState("");
-  const [bValue, setBValue] = useState("");
-  const [mValuevw, setMValuevw] = useState("");
+  const [minValueRem, setMinValueRem] = useState();
+  const [valueDifference, setValueDifference] = useState();
+  const [bValue, setBValue] = useState();
+  const [mValuevw, setMValuevw] = useState();
 
   const [showResult, setShowResult] = useState(false)
 
-  const calculateLock = (minValue, minWidth, maxValue, maxWidth) => {
-    const minValueRem = minValue / 16
-    const mValue = (maxValue - minValue) / (maxWidth - minWidth)
-    const valueDifference = maxValue - minValue;
+  const calculateLock = ({minSize, minWidth, maxSize, maxWidth}) => {
+    console.log({minSize, minWidth, maxSize, maxWidth})
+    const minValueRem = minSize / 16
+    const mValue = (maxSize - minSize) / (maxWidth - minWidth)
+    const valueDifference = maxSize - minSize;
     const bValue = Math.round((0 - mValue * minWidth + Number.EPSILON) * 1000) / 1000;
     const mValuevw = Math.round((mValue * 100 + Number.EPSILON) * 1000) / 1000;
 
@@ -28,16 +24,7 @@ export const CalcProvider = ({ children }) => {
     setMValuevw(mValuevw)
   }
 
-
   const allInfo = {
-    minValue,
-    setMinValue,
-    minWidth,
-    setMinWidth,
-    maxValue,
-    setMaxValue,
-    maxWidth,
-    setMaxWidth,
     calculateLock,
     minValueRem,
     valueDifference, 
