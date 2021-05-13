@@ -9,9 +9,10 @@
     "formik": "^2.2.6",
     "gh-pages": "^3.1.0",
     "gsap": "^3.6.0",
+    "node-sass": "^6.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1",
+    "react-scripts": "^4.0.3",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.9"
   },
