@@ -1,0 +1,95 @@
+// $light-blue: #51586b;
+// $dark-blue: #1C2335;
+
+.calculator-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .main-title {
+        margin: 100px auto 80px;
+        text-align: center;
+    };
+    .btn {
+        border: 1px solid #51586b;
+        background: #51586b;
+        padding: 10px 20px;
+        border-radius: 10px;
+        outline: none;
+        &:hover, &:focus{
+            border: 1px solid white;
+        }
+    };
+    .mid-title {
+        margin: 20px auto;
+    }
+    form {
+        width: 100%;
+        margin: 30px auto;
+
+        .form-container {
+            
+            margin-bottom: 50px;
+
+           .form-control {
+               position: relative;
+               margin-top: 20px;
+               margin-right: 20px;
+               width: 100%;
+               padding: 1% 0;
+               display: flex;
+               align-items: flex-start;
+               justify-content: space-between;         
+               min-height: 60px;
+
+            label {
+                font-size: 0.9rem;
+            }
+            input {
+                border-radius: 15px;
+                border: 1.5px solid white;
+                width: 60%;       
+                min-height: 35px;    
+                background: transparent;
+                padding: 0 10px;
+                outline: none;
+
+                &.invalid {
+                    border: 1.5px solid red;
+                }
+
+                &:focus {
+                    background: rgba(0, 0, 0, 0.3);
+                }                
+            }
+            .validation-msg {
+                position: absolute;
+                bottom: 0px;
+                right: 0;
+                color: red;
+                font-size: 0.8rem;
+            }
+           }
+        }
+        .btn {
+            margin: 10px;
+            padding: 15px 25px;
+        }
+        .reset-btn {
+            background: transparent;
+            padding: 10px 20px;
+        }
+
+    }
+
+}
+@media (min-width: 650px) {
+    .calculator-container form {
+        .form-container {
+            display: flex;
+        }
+    }
+}

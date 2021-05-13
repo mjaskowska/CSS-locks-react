@@ -32,7 +32,7 @@ const Calculator = () => {
           <button
             {...{
               type: "button",
-              className: "more-info-btn",
+              className: "btn more-info-btn",
               onClick: () => setShowMoreInfo(!showMoreInfo),
             }}
           >
@@ -59,7 +59,7 @@ const Calculator = () => {
                   }}
                 />
                 {errors[CONSTANTS.MIN_SIZE] && (
-                  <p>{errors[CONSTANTS.MIN_SIZE]}</p>
+                  <p className="validation-msg">{errors[CONSTANTS.MIN_SIZE]}</p>
                 )}
               </div>
               <div className="form-control">
@@ -79,12 +79,12 @@ const Calculator = () => {
                   }}
                 />
                 {errors[CONSTANTS.MIN_WIDTH] && (
-                  <p>{errors[CONSTANTS.MIN_WIDTH]}</p>
+                  <p className="validation-msg">{errors[CONSTANTS.MIN_WIDTH]}</p>
                 )}
               </div>
             </section>
             <h3 className="mid-title">Higher breakpoint</h3>
-            <section className="font-container">
+            <section className="form-container">
               <div className="form-control">
                 <label>Max font-size (px)</label>
                 <input
@@ -102,7 +102,7 @@ const Calculator = () => {
                   }}
                 />
                 {errors[CONSTANTS.MAX_SIZE] && (
-                  <p>{errors[CONSTANTS.MAX_SIZE]}</p>
+                  <p className="validation-msg">{errors[CONSTANTS.MAX_SIZE]}</p>
                 )}
               </div>
               <div className="form-control">
@@ -122,13 +122,17 @@ const Calculator = () => {
                   }}
                 />
                 {errors[CONSTANTS.MAX_WIDTH] && (
-                  <p>{errors[CONSTANTS.MAX_WIDTH]}</p>
+                  <p className="validation-msg">{errors[CONSTANTS.MAX_WIDTH]}</p>
                 )}
               </div>
             </section>
 
-            <button {...{ type: BUTTONS.SUBMIT }}>Calculate</button>
-            <button {...{ type: BUTTONS.RESET }}>Reset</button>
+            <button {...{ 
+                className: "btn submit-btn",
+                type: BUTTONS.SUBMIT }}>Calculate</button>
+            <button {...{
+                className: "btn reset-btn",
+                type: BUTTONS.RESET }}>Reset</button>
           </Form>
           {showResult && <ResultField/>}
         </section>
