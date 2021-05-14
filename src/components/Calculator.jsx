@@ -15,7 +15,7 @@ const Calculator = () => {
   return (
     <Formik
       {...{
-        initialValues: { maxSize: 0, minSize: 0, maxWidth: 0, minWidth: 0 },
+        initialValues: { maxSize: 24, minSize: 16, maxWidth: 1200, minWidth: 576 },
         validateOnChange: true,
         validateOnMount: true,
         validationSchema,
